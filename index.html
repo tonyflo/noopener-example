@@ -1,0 +1,12 @@
+<html>
+  <head>
+    <title>Noopener Exploit Example</title>
+  </head>
+  <body>
+    <h1>Example of noopener vulnerability</h1>
+    <h2>Vulnerable to target="_blank" exploit</h2>
+    <p>When you click on <a href="page.html" target="_blank" rel="opener">this link</a>, a new tab will open. The new page will have access to this page's window object.</p>
+    <h2>Safe from target="_blank" exploit</h2>
+    <p>When you click on <a href="page.html" target="_blank" rel="noopener">this link</a>, a new tab will open be changed by the new page.</p>
+  </body>
+</html>

