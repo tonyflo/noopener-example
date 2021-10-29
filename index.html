@@ -3,10 +3,17 @@
     <title>Noopener Exploit Example</title>
   </head>
   <body>
-    <h1>Example of noopener vulnerability</h1>
-    <h2>Vulnerable to target="_blank" exploit</h2>
-    <p>When you click on <a href="page.html" target="_blank" rel="opener">this link</a>, a new tab will open. The new page will have access to this page's window object.</p>
-    <h2>Safe from target="_blank" exploit</h2>
-    <p>When you click on <a href="page.html" target="_blank" rel="noopener">this link</a>, a new tab will open be changed by the new page.</p>
+    <h1>Example of noopener vs opener vulnerability</h1>
+    <p>The <code>rel</code> attribute of the <code>a</code> tag in HTML can have many values including <code>opener</code> and <code>noopener</code> when used with <code>target="_blank"</code> (which opens the link in a new tab).</p>
+    <p>The examples below will demonstrate how <code>opener</code> gives the destination page access to the source page's <code>window.opener</code> object which can be exploited in malicious ways.</p>
+    <h2>1. opener</h2>
+    <p>When you click on <a href="page.html" target="_blank" rel="opener">this link</a>, the new page will have access to this page's <code>window.opener</code> object and change its content.</p>
+    <code>&lt;a href="page.html" target="_blank" rel="opener"&gt;this link&lt;/a&gt;</code>
+    <h2>2. noopener</h2>
+    <p>When you click on <a href="page.html" target="_blank" rel="noopener">this link</a>, the new page will NOT have access to this page's <code>window.opener</code> object.</p>
+    <code>&lt;a href="page.html" target="_blank" rel="noopener"&gt;this link&lt;/a&gt;</code>
+    <h2>3. Default behavior</h2>
+    <p>When you click on <a href="page.html" target="_blank">this link</a>, most modern browsers will default to the noopener behavior.</p>
+    <code>&lt;a href="page.html" target="_blank"&gt;this link&lt;/a&gt;</code>
   </body>
 </html>

@@ -1,13 +1,17 @@
 <html>
   <head>
-    <title>Exploiting target=_blank opener</title>
+    <title>This is a new tab</title>
   </head>
   <body>
-    <h1>This is a malicious page</h1>
-    <p>If your previous tab has changed, the link that took you here was unsafe because it did not use rel="noopener".</p>
+    <h1>Welcome to a new tab</h1>
+    <p>Does this page have access to the previous tab's <code>window.opener</code> object? <span style="font-weight: bold">No</span></p>
+    <p>If your previous tab has changed, the link that took you here was unsafe because it did not use <code>rel="noopener"</code>.</p>
   </body>
   <script>
-    // try to change the previous page by manipulating its window object
-    window.opener.location = 'malicious.html'
+    if (window.opener) {
+        // change the previous page by manipulating its window object
+        window.opener.location = 'malicious.html';
+        document.querySelector('span').innerHTML = "Yes";
+    }
   </script>
 </html>
